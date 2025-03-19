@@ -39,12 +39,9 @@ const viewUbicationByCoordinates = async () => {
 
 const getLocation = async () => {
   try {
-  
-  
     const position = await Geolocation.getCurrentPosition();
     latitud.value = position.coords.latitude;
     longitud.value = position.coords.longitude;
-    
   } catch (error) {
     console.error('Error getting location:', error);
   }
@@ -65,7 +62,7 @@ const getLocation = async () => {
         placeholder="Ingrese el nombre del país">
       </ion-input>
       <ion-button expand="block" @click="viewUbicationByCountry">Buscar por País</ion-button>
-      <ion-button expand="block" @click="viewUbicationByCoordinates">Clima en  la ubicación actual </ion-button>
+      <ion-button expand="block" @click="viewUbicationByCoordinates">Clima en la ubicación actual</ion-button>
 
       <ion-card v-if="weatherData">
         <ion-card-header>
@@ -87,6 +84,54 @@ const getLocation = async () => {
     </ion-content>
   </ion-page>
 </template>
+
+<style scoped>
+ion-page {
+  background-color: #f5f5f5; /* Fondo neutro */
+  color: #333; /* Texto oscuro */
+}
+
+ion-toolbar {
+  background-color: #e0e0e0; /* Barra de herramientas neutra */
+  color: #333; /* Texto oscuro */
+}
+
+ion-input {
+  --background: #ffffff; /* Fondo blanco */
+  --color: #333; /* Texto oscuro */
+  border: 1px solid #ccc; /* Borde neutro */
+  border-radius: 4px;
+}
+
+ion-button {
+  --background: #d6d6d6; /* Botón neutro */
+  --color: #333; /* Texto oscuro */
+}
+
+ion-card {
+  background-color: #ffffff; /* Fondo blanco */
+  color: #333; /* Texto oscuro */
+  border: 1px solid #ccc; /* Borde neutro */
+  border-radius: 8px;
+}
+
+ion-card-title {
+  font-weight: bold;
+  color: #555; /* Título más oscuro */
+}
+
+ion-card-content p {
+  margin: 8px 0;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+</style>
 
 
 
